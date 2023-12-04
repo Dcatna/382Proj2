@@ -1,0 +1,18 @@
+
+LOAD L0, 0x00 //loading the registers with values stored in the data memory
+LOAD L1, 0x01
+
+ADD L0, L0, 2 //adding with an immediate value
+ADD L0, L0, L1 //adding with a register value
+
+SUB L0, L0, 1 //subbing with an immediate value
+SUB L1, L1, L0 //subbing with a register value
+
+STORE L0, 0x02 //storing data in specified memory location
+STORE L1, 0x03
+
+
+.data
+    4, 0x00
+    6, 0x01
+
