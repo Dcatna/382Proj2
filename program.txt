@@ -6,7 +6,7 @@ ADD L0 L0 2 //adding with an immediate value
 ADD L0 L0 L1 //adding with a register value
 
 SUB L0 L0 1 //subbing with an immediate value
-SUB L1 L1 L0 //subbing with a register value
+SUB L1 L0 L1 //subbing with a register value
 
 STORE L0 2 //storing data in specified memory location
 STORE L1 3
