@@ -1,3 +1,4 @@
+.text
 
 LOAD L0 0 //loading the registers with values stored in the data memory
 LOAD L1 1
@@ -12,6 +13,6 @@ STORE L0 2 //storing data in specified memory location
 STORE L1 3
 
 .data
-    4, 0 //4 is stored at 0 in data mem ...
-    6, 1
+    4 0 //4 is stored at 0 in data mem ...
+    6 1
 
