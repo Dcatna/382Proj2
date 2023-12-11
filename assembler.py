@@ -56,15 +56,17 @@ def createInstructions(splitinst):
         
         elif(inst[0] == '.data'): #handing .data we dont do non with .text
             data = splitinst[i + 2:]
-            print(data)
+           # print(data)
+            counter = 1
             for addys in data:
                 location = addys[1]
                 if(int(location) > 0):
-                    counter = 0
                     while(int(location) != counter):
                         datafile.write("0 ")
                         counter += 1
-                    print(addys[0])
+                    counter = int(addys[1]) + 1
+                    datafile.write(addys[0] + " ")
+                else:
                     datafile.write(addys[0] + " ")
 
     return instructionlist
@@ -96,14 +98,12 @@ if(__name__ == "__main__"):
         if line_content: # only addcontent to the list
             instlist.append(line_content)
 
-    print(instlist)
-
     splitinsts = []
     for inst in instlist: #seperates each isntructions into its individual parts
         inst = inst.split()
         splitinsts.append(inst)
 
-    print(splitinsts)
+  
     instructions = createInstructions(splitinsts)
     #print(instructions)
     i = 0
@@ -115,13 +115,11 @@ if(__name__ == "__main__"):
             pass
         elif(type(instruction) == list):
             for x in instruction:
-                print(hex(int(x, 2))[2:].zfill(4), x)
+           
                 instructionfile.write(hex(int(x, 2))[2:].zfill(4) + " ")
                 i+=1
         else:
-            print(hex(int(instruction, 2))[2:].zfill(4), instruction)
+           
             instructionfile.write(hex(int(instruction, 2))[2:].zfill(4) + " ")
             i+=1
-    print(hex(int(instructions[0][0]))[2:].zfill(4))
-    print(str(baseaddress + 10).zfill(4))
-    
+
